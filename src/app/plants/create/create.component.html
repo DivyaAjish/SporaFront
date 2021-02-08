@@ -1,0 +1,49 @@
+<div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+    <h1 class="h2 text-primary">Add New Plant</h1>
+  </div>
+  <div class="row">
+      <div *ngIf="isCreated" class="bg-primary"> {{ msg }}</div>
+      <div class="col-8">
+        <form #addPlantForm="ngForm" (submit)="addPlant(addPlantForm)">
+            <div class="mb-3">
+              <label for="exampleInputEmail1" class="form-label">Plant Name <span class="text-danger">*</span></label>
+              <input type="text" class="form-control" [(ngModel)]="plantName" name="plantName" Placeholder="Enter plant name" autocomplete="disabled" required>
+            </div>
+            <div class="mb-3">
+                <label for="exampleInputEmail1" class="form-label">Plant Category <span class="text-danger">*</span></label>
+                <select class="form-select" [(ngModel)]="plantType" name="plantType" >
+                    <option value="tree" selected>Tree</option>
+                    <option value="herb">Herb</option>
+                    <option value="shurb">Shurb</option>
+                    <option value="creeper">Creeper</option>
+                    <option value="climber">Climber</option>
+                </select>
+              </div>
+
+              <div class="mb-3">
+                <label for="exampleInputEmail1" class="form-label">Plant Location <span class="text-danger">*</span></label>
+                <input type="text" class="form-control" [(ngModel)]="plantLocation" name="plantLocation" Placeholder="Enter plant location" autocomplete="disabled">
+                <div class="form-text">We'll never share your email with anyone else.</div>
+              </div>
+            <div class="mb-3">
+              <label for="exampleInputPassword1" class="form-label">Plant Description <span class="text-danger">*</span></label>
+              <textarea type="text" class="form-control" [(ngModel)]="plantDescription" name="plantDescription" Placeholder="Enter plant description"></textarea>
+            </div>
+            <div class="mb-3">
+                <label for="exampleInputPassword1" class="form-label">Plant Uses</label>
+                <textarea type="text" class="form-control" [(ngModel)]="plantUses" name="plantUses" Placeholder="Enter plant uses"></textarea>
+              </div>
+
+            <div>
+              <label class="image-upload-container btn btn-bwm">
+                <span>Select Image</span>
+                
+                <input type="file" class="custom-file-input" id="customFile" name="uploadedImage"
+            (change)="onFileSelect($event)" #UploadFileInput>
+
+              </label>
+            </div>
+            <button type="submit" class="btn btn-primary" [disabled]="!addPlantForm.valid">Add New Plant</button>
+          </form>
+      </div>
+  </div>

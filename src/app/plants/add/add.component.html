@@ -1,0 +1,66 @@
+<div class="container">
+    <div class="row">
+        <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+            <h1 class="h2 text-primary">Add New Plant</h1>
+          </div>
+  
+      <form [formGroup]="form" (ngSubmit)="submitForm()">
+  
+        <!-- Image Preview -->
+        <div class="form-group pt-2 pb-2">
+          <div class="preview" *ngIf="preview && preview !== null">
+            <img [src]="preview" [alt]="form.value.name">
+          </div>
+        </div>
+  
+        <!-- Name -->
+        <div class="form-group input-group-md pt-2 pb-2">
+            <label for="exampleInputEmail1" class="form-label">Plant Name <span class="text-danger">*</span></label>
+          <input class="form-control" placeholder="Enter Plant Name" formControlName="plantName">
+        </div>
+
+        <!-- Type -->
+        <div class="form-group input-group-md pt-2 pb-2">
+            <label for="exampleInputEmail1" class="form-label">Plant Category <span class="text-danger">*</span></label>
+            <select class="form-select" formControlName="plantType" >
+                <option value="tree" selected>Tree</option>
+                <option value="herb">Herb</option>
+                <option value="shurb">Shurb</option>
+                <option value="creeper">Creeper</option>
+                <option value="climber">Climber</option>
+            </select>
+        </div>
+
+        <!-- Location -->
+        <div class="form-group input-group-md pt-2 pb-2">
+            <label for="exampleInputEmail1" class="form-label">Plant Location <span class="text-danger">*</span></label>
+          <input class="form-control" placeholder="Enter Plant Location" formControlName="plantLocation">
+        </div>
+
+        <!-- Description -->
+        <div class="form-group input-group-md pt-2 pb-2">
+            <label for="exampleInputPassword1" class="form-label">Plant Description <span class="text-danger">*</span></label>
+            <textarea class="form-control" placeholder="Enter plant Description" formControlName="plantDesc">
+            </textarea>
+        </div>
+
+        <!-- uses -->
+        <div class="form-group input-group-md pt-2 pb-2">
+            <label for="exampleInputPassword1" class="form-label">Plant Uses</label>
+            <textarea class="form-control" placeholder="Enter plant uses" formControlName="plantUses"></textarea>
+        </div>
+
+        <!-- File Input -->
+        <div class="form-group pt-2 pb-2">
+            <input type="file" (change)="uploadFile($event)">
+          </div>
+
+        <!-- Submit -->
+        <div class="form-group pt-4">
+          <button [disabled]="form.invalid" class="btn btn-success btn-block btn-lg">Create Plant</button>
+        </div>
+  
+      </form>
+  
+    </div>
+  </div>

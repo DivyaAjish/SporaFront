@@ -1,0 +1,26 @@
+<div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+    <h1 class="h2 text-primary">Contact Us Form</h1>
+  </div>
+  <div class="row">
+      <div *ngIf="isCreated" class="bg-success text-white p-2 "> {{ msg }}</div>
+      <div class="col-8">
+        <form #addMessageForm="ngForm" (submit)="addMessage(addMessageForm)">
+            <div class="mb-3">
+              <label for="exampleInputEmail1" class="form-label">Message Subject <span class="text-danger">*</span></label>
+              <input type="text" class="form-control" [(ngModel)]="messageName" name="messageName" Placeholder="Enter message name" autocomplete="disabled" required>
+            </div>
+           
+            <div class="mb-3">
+            <label for="exampleInputEmail1" class="form-label">Your Email Address<span class="text-danger">*</span></label>
+            <input type="text" class="form-control" [(ngModel)]="userEmail" name="userEmail" Placeholder="Enter your email address" autocomplete="disabled">
+            <div class="form-text">We'll never share your email with anyone else.</div>
+            </div>
+            <div class="mb-3">
+              <label for="exampleInputPassword1" class="form-label">Your Message <span class="text-danger">*</span></label>
+              <textarea type="text" class="form-control" [(ngModel)]="messageDescription" name="messageDescription" Placeholder="Enter your message"></textarea>
+            </div>
+           
+            <button type="submit" class="btn btn-primary" [disabled]="!addMessageForm.valid">Send Message</button>
+          </form>
+      </div>
+  </div>

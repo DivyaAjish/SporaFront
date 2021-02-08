@@ -1,0 +1,31 @@
+<div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+    <h1 class="h2 text-primary">Create New User</h1>
+</div>
+<div class="col-8">
+    <div *ngIf="error">
+        {{ msg}}
+    </div>
+    <form #registerForm="ngForm" (submit)="register(registerForm)">
+        <div class="mb-3">
+          <label class="form-label">Email address</label>
+          <input type="email" class="form-control" [(ngModel)]="emailAddress" name="emailAddress">
+        </div>
+        <div class="mb-3">
+            <label class="form-label">First Name</label>
+            <input type="email" class="form-control" [(ngModel)]="firstname" name="firstname">
+        </div>
+        <div class="mb-3">
+            <label class="form-label">Last Name</label>
+            <input type="email" class="form-control" [(ngModel)]="lastname" name="lastname">
+        </div>
+        <div class="mb-3">
+          <label class="form-label">Password</label>
+          <input type="password" class="form-control" [(ngModel)]="password" name="password">
+        </div>
+        <div class="mb-3">
+            <input type="checkbox" class="form-checked" [(ngModel)]="isAdmin" name="isAdmin"> Is user Admin?
+          </div>
+        <button type="submit" class="btn btn-primary">Submit</button>
+      </form>
+      <a href="login">Already Registered? Login here</a>
+    </div>

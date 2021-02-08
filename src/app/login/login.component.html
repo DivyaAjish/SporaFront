@@ -1,0 +1,23 @@
+<div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+    <h1 class="h2 text-primary">Login User</h1>
+</div>
+
+<div *ngIf="error" class="bg-danger text-white">
+  {{ msg}}
+</div>
+
+<div class="col-8">
+    <form #registerForm="ngForm" (submit)="login(registerForm)">
+        <div class="mb-3">
+          <label class="form-label">Email address</label>
+          <input type="email" class="form-control" [(ngModel)]="emailAddress" name="emailAddress" autocomplete="disabled">
+        </div>
+        <div class="mb-3">
+          <label class="form-label">Password</label>
+          <input type="password" class="form-control" [(ngModel)]="password" name="password">
+        </div>
+        <button type="submit" class="btn btn-primary">Submit</button>
+        <br/>
+        <a href="register">New User? Register here</a>
+    </form>
+</div>

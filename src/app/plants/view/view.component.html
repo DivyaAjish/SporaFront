@@ -1,0 +1,30 @@
+<div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+    <h1 class="h2">View Plant Detail: {{ plant.plantName}}</h1>
+  </div>
+  <div class="row">
+<div class="col-8">
+    <div class="card h-100">
+      <img class="card-img-top" [src]="plant.plantUrl" alt="">
+      <div class="card-body">
+        <h4>Plant Type</h4>
+        <p class="card-text">{{ plant.plantType}}</p>
+
+        <h4>Plant Location</h4>
+        <p class="card-text">{{ plant.plantLocation}}</p>
+
+        <h4>Plant Description</h4>
+        <p class="card-text">{{ plant.plantDescription}}</p>
+
+        <h4>Plant Uses</h4>
+        <p class="card-text">{{ plant.plantUses}}</p>
+      </div>
+    </div>
+</div>
+
+<div class="col-4" *ngIf="isUserAdmin">
+  <h5>Admin Actions</h5>
+  <a [routerLink]="['/plants', 'edit', plant._id]"> Edit </a>  
+    <a [routerLink]="['/plants', 'delete',plant._id]"> Delete </a>
+</div>
+
+</div>
